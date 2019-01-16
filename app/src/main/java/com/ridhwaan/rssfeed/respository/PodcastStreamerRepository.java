@@ -1,4 +1,4 @@
-package com.ridhwaan.rssfeed;
+package com.ridhwaan.rssfeed.respository;
 
 import android.media.AudioAttributes;
 import android.media.AudioManager;
@@ -15,9 +15,6 @@ import io.reactivex.ObservableSource;
 
 public class PodcastStreamerRepository {
     final private MediaPlayer player;
-    private static final String STREAM_URL = "https://hwcdn.libsyn.com/p/e/9/2/e923e00e5b515c86/S01E07_-_" +
-            "Human_Evolution_Revised_Timelines_and_Multiregionalism.mp3" +
-            "?c_id=29581166&cs_id=29581166&expiration=1547670748&hwt=9dbc43900e81b3ca68de98549449a4a7";
 
 
 
@@ -28,22 +25,20 @@ public class PodcastStreamerRepository {
 
     }
 
-    public Observable<MediaPlayer> getPlayer(){
+    public Observable<MediaPlayer> startPlayer(final String path){
             return Observable.defer(new Callable<ObservableSource<MediaPlayer>>() {
                 @Override
                 public ObservableSource<MediaPlayer> call() throws Exception {
-                    // prepare media player
-                    preparePlayer(player);
+                    // prepare media player and return only when its ready
+                    preparePlayer(player, path);
                     return Observable.just(player);
                 }
             });
-
-
     }
 
-    private static void preparePlayer(final MediaPlayer player){
+    private static void preparePlayer(final MediaPlayer player, final String path){
         try{
-            player.setDataSource(STREAM_URL);
+            player.setDataSource(path);
             player.prepare();
         }catch (IOException e){
             e.printStackTrace();

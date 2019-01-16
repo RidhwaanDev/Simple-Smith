@@ -1,21 +1,13 @@
-package com.ridhwaan.rssfeed;
+package com.ridhwaan.rssfeed.respository;
 
 import android.util.Log;
 
+import com.ridhwaan.rssfeed.api.RssService;
 import com.ridhwaan.rssfeed.model.Feed;
-import com.ridhwaan.rssfeed.model.FeedListItem;
-
-import java.util.List;
 
 import io.reactivex.Observable;
-import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.functions.Consumer;
-import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.simplexml.SimpleXmlConverterFactory;

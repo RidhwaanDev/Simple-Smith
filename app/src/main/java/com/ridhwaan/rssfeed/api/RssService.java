@@ -1,4 +1,4 @@
-package com.ridhwaan.rssfeed;
+package com.ridhwaan.rssfeed.api;
 
 
 import com.ridhwaan.rssfeed.model.Feed;

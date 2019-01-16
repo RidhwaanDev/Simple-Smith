@@ -1,9 +1,9 @@
-package com.ridhwaan.rssfeed;
+package com.ridhwaan.rssfeed.ui.viewmodel;
 
 import android.arch.lifecycle.ViewModel;
 
+import com.ridhwaan.rssfeed.respository.RssXMLRepository;
 import com.ridhwaan.rssfeed.model.Feed;
-import com.ridhwaan.rssfeed.model.FeedListItem;
 
 import io.reactivex.Observable;
 
